@@ -43,6 +43,6 @@ class DanhmucController extends Controller
     }
     public function postedit(Danhmuc $danhmuc,CreateDanhMucRequest $request){
         $result = $this->danhmucService->edit($request,$danhmuc);
-        return redirect()->back();
+        return redirect()->route('list');
     }
 }

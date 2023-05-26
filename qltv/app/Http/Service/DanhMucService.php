@@ -25,13 +25,6 @@ class DanhMucService
         return true;
     }
      public function getAll(){
-        //lay toan bo
-        //return Danhmuc::get();
-
-         //paging
-        //$danhmuc = DB::table('danhmucs')->where('id', 1)->get();
-         //return $danhmuc;
-         //return $danhmuc;
         return Danhmuc::paginate(2);
      }
       public function edit($request,$danhmuc)

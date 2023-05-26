@@ -14,24 +14,11 @@
             <div class="form-group">
                 <label for="exampleInputEmail1">Mô tả</label>
                 <textarea name="MoTa" id="mota" rows="10" cols="80">
-                This is my textarea to be replaced with CKEditor 4.
                 </textarea>
                 <script>
                     CKEDITOR.replace( 'mota' );
                 </script>
             </div>
-<<<<<<< HEAD
-            <textarea name="editor1" id="editor1" rows="10" cols="80">
-                This is my textarea to be replaced with CKEditor 4.
-            </textarea>
-            <script>
-                // Replace the <textarea id="editor1"> with a CKEditor 4
-                // instance, using default configuration.
-                CKEDITOR.replace( 'editor1' );
-            </script> 
-=======
-
->>>>>>> 29ad9144448b9958f72087ad96c2f22412ce2703
             <div class="form-group">
                 <label for="exampleInputPassword1">Vị trí</label>
                 <input type="text" name="ViTri" class="form-control" id="ViTri" placeholder="Nhập vị trí">

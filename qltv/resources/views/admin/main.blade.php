@@ -163,6 +163,7 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
+                            @include('share.error')
                             @yield('content')
                         </div>
                         <!-- /.card -->

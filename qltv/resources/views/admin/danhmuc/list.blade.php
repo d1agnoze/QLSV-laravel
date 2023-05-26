@@ -26,5 +26,5 @@
             @endforeach
         </tbody>
     </table>
-{{ $danhmucs->links() }}
+`
 @endsection
