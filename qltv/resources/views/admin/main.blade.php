@@ -3,7 +3,6 @@
 <html lang="en">
 <head>
     @include('share.head')
-    
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">

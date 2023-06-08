@@ -24,9 +24,9 @@
                     <td>{{ $danhmuc->MaDM }}</td>
                     <td>{{ $danhmuc->TenDM }}</td>
                     <td>{!! $danhmuc->MoTa !!}</td>
-                    <td>{{ $danhmuc->Vitri }}</td>
-                    <td><a class="mr-3" href="/admin/danhmuc/edit/{{ $danhmuc->id }}"><i class="fa fa-edit "></i></a>
-                        <a href=""><i class="fa fa-trash"></i></a>
+                    <td>{{$danhmuc->Vitri}}</td>
+                    <td><a class="btn btn-primary mr-3" href="/admin/danhmuc/edit/{{$danhmuc->id}}"><i class="fa fa-edit "></i></a>
+                        <a class="btn btn-danger" href="#" onclick="Delete({{$danhmuc->id}},'/admin/danhmuc/delete')"><i class = "fa fa-trash"></i></a>
                     </td>
                 </tr>
             @endforeach

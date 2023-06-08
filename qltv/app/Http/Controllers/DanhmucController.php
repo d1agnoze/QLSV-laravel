@@ -57,4 +57,16 @@ class DanhmucController extends Controller
         }
         return redirect()->back();
     }
+    public function delete(Request $request){
+        $result = $this->danhmucService->delete($request);
+        if($result){
+            return response()->json([
+               'error'=>'false',
+               'message'=>'Xóa danh mục thành công'
+            ]);
+        }
+        return response()->json([
+            'error'=>'true'
+        ]);
+    }
 }

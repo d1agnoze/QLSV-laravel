@@ -8,8 +8,8 @@
     </div>
 @endif
 
-@if(Session::has('error'))
-    <div class="alert alert-danger">
+
+    <div class="alert alert-dan@if(Session::has('error'))ger">
         {{Session::get('error')}}
     </div>
 @endif
