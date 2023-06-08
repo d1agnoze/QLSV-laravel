@@ -13,5 +13,6 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="/theme/dist/css/bootstrap.css">
   <link rel="stylesheet" href="/theme/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="/theme/plugins/toastr/toastr.min.css">
   <script src="/ckeditor/ckeditor.js"></script>
 </head>

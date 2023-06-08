@@ -32,7 +32,7 @@ class DanhMucService
     {
         if (!empty(request()->order)){
             $mode = request()->order;
-            return DanhMucService::getsearchItem()->orderBy('id',$mode);
+            return DanhMucService::getsearchItem()->orderBy('TenDM',$mode);
         }
         else {
             return DanhMucService::getsearchItem();
