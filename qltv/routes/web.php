@@ -28,11 +28,11 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('danhmuc')->group(function () {
             Route::get('add',[DanhmucController::class,'create']);
             Route::post('add/store',[DanhmucController::class,'store']);
-            Route::get('list',[DanhmucController::class,'list'])->name('list');
+            Route::get('list/{search?}/{order?}',[DanhmucController::class,'list'])->name('list');
             Route::get('edit/{danhmuc}',[DanhmucController::class,'edit']);
             Route::post('edit/{danhmuc}',[DanhmucController::class,'postedit']);
             Route::delete('delete',[DanhmucController::class,'delete']);
-            Route::post('list/setpage',[DanhmucController::class,'setLimit']);            
+            Route::post('list/setpage',[DanhmucController::class,'setLimit']);
             // Route::DELETE('delete',[DanhmucController::class,'delete']);
         });
     });

@@ -14,4 +14,11 @@ class Danhmuc extends Model
         'MoTa',
         'Vitri'
     ];
+    public function scopeSearch($query)
+    {
+        return empty(request()->search) ? $query : $query->where('id', 'like', '%' . request()->search . '%')
+                                                    ->orWhere('MaDM', 'like', '%' . request()->search . '%')
+                                                    ->orWhere('TenDM','like','%'.request()->search.'%')
+                                                    ->orWhere('Vitri','like','%'.request()->search.'%');
+    }
 }

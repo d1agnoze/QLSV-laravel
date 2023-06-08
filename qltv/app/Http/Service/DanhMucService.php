@@ -8,51 +8,65 @@ use DB;
 
 class DanhMucService
 {
-    public function create($request){
+    public function create($request)
+    {
         try {
             Danhmuc::create([
-                'TenDM'=>(string)$request->input('TenDM'),
-                'MaDM'=>(string)$request->input('MaDM'),
-                'MoTa'=>(string)$request->input('MoTa'),
-                'Vitri'=>(string)$request->input('ViTri')
+                'TenDM' => (string)$request->input('TenDM'),
+                'MaDM' => (string)$request->input('MaDM'),
+                'MoTa' => (string)$request->input('MoTa'),
+                'Vitri' => (string)$request->input('ViTri')
             ]);
-            Session()->flash('success','Thêm mới danh mục thành công');
-        }
-        catch (Exception $ex){
-            Session()->flash('error',$ex->getMessage());
+            Session()->flash('success', 'Thêm mới danh mục thành công');
+        } catch (Exception $ex) {
+            Session()->flash('error', $ex->getMessage());
             return false;
         }
         return true;
     }
-     public function getAll(){
-        if (session()->has('pageLimit')) {
-           $setLimit = session()->get('pageLimit');
-           $setLimit = intval($setLimit);
-           return Danhmuc::paginate($setLimit);
-        //    return Danhmuc::orderBy('id','desc')->paginate($setLimit);
+    public function getsearchItem()
+    {
+        return Danhmuc::search();
+    }
+    public function getSorting()
+    {
+        if (!empty(request()->order)){
+            $mode = request()->order;
+            return DanhMucService::getsearchItem()->orderBy('id',$mode);
         }
-        return Danhmuc::paginate(2);
-     }
-      public function edit($request,$danhmuc)
-      {
-          try {
-              $danhmuc->MaDM = $request->input('MaDM');
-              $danhmuc->TenDM = $request->input('TenDM');
-              $danhmuc->MoTa = $request->input('MoTa');
-              $danhmuc->Vitri = $request->input('ViTri');
-              $danhmuc->save();
-              Session()->flash('success','Sửa thông tin danh mục thành công');
-
-          }
-          catch (Exception $ex){
-              Session()->flash('error',$ex->getMessage());
-              return false;
-          }
-          return true;
-      }
-    public function delete($request){
-        $danhmuc = Danhmuc::where('id',$request->input('id'))->first();
-        if($danhmuc){
+        else {
+            return DanhMucService::getsearchItem();
+        }
+    }
+    public function getAll()
+    {
+        if (session()->has('pageLimit')) {
+            $setLimit = session()->get('pageLimit');
+            $setLimit = intval($setLimit);
+            return  DanhMucService::getSorting()->paginate($setLimit);
+            //    return Danhmuc::orderBy('id','desc')->paginate($setLimit);
+        }
+        return DanhMucService::getSorting()->paginate(3);
+    }
+    public function edit($request, $danhmuc)
+    {
+        try {
+            $danhmuc->MaDM = $request->input('MaDM');
+            $danhmuc->TenDM = $request->input('TenDM');
+            $danhmuc->MoTa = $request->input('MoTa');
+            $danhmuc->Vitri = $request->input('ViTri');
+            $danhmuc->save();
+            Session()->flash('success', 'Sửa thông tin danh mục thành công');
+        } catch (Exception $ex) {
+            Session()->flash('error', $ex->getMessage());
+            return false;
+        }
+        return true;
+    }
+    public function delete($request)
+    {
+        $danhmuc = Danhmuc::where('id', $request->input('id'))->first();
+        if ($danhmuc) {
             return $danhmuc->delete();
         }
     }

@@ -7,9 +7,8 @@
         </ul>
     </div>
 @endif
-
-
-    <div class="alert alert-dan@if(Session::has('error'))ger">
+@if(Session::has('error'))
+    <div class="alert alert-danger">
         {{Session::get('error')}}
     </div>
 @endif

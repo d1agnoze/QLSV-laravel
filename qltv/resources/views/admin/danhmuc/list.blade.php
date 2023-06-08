@@ -1,10 +1,18 @@
 @extends('admin.main')
 @section('content')
-    <div class="setLimitpagination">
+    <div class="functionalBTN d-flex gap-3 align-items-center w-100 justify-content-start my-2" style="gap:.5rem" >
         @include('share.error')
-        <button type="button" class="btn btn-warning text-white" data-toggle="modal" data-target="#modal-warning">
+        <button type="button" class="btn btn-warning text-white ml-1" data-toggle="modal" data-target="#modal-warning">
             Cài đặt phân trang
         </button>
+        <a href="{{ request()->fullUrlWithQuery(['order' => 'asc']) }}" class="btn btn-info">Order by ID (ASC)</a>
+        <a href="{{ request()->fullUrlWithQuery(['order' => 'desc']) }}" class="btn btn-info">Order by ID (DESC)</a>
+
+        <form action="/admin/danhmuc/list" class="form-group d-flex align-items-center justify-center m-0 ml-auto" method="GET" style="gap:.5rem">
+            <a href="/admin/danhmuc/list" class="btn bg-blue">Reset</a>
+            <input type="text" name="search" class="form-control">
+            <button type="submit" class="btn btn-success"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </form>
     </div>
     <table class="table table-striped">
         <thead>
@@ -32,7 +40,7 @@
             @endforeach
         </tbody>
     </table>
-    {{ $danhmucs->links() }}
+    {{ $danhmucs->appends($_GET)->links() }}
     <div class="modal fade show" id="modal-warning" style="display: none; padding-right: 15px;" aria-modal="true"
         role="dialog">
         <div class="modal-dialog">
