@@ -6,6 +6,7 @@ use App\Http\Requests\CreateDanhMucRequest;
 use App\Http\Service\DanhMucService;
 use App\Models\Danhmuc;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\Echo_;
 
 class DanhmucController extends Controller
 {
@@ -44,5 +45,16 @@ class DanhmucController extends Controller
     public function postedit(Danhmuc $danhmuc,CreateDanhMucRequest $request){
         $result = $this->danhmucService->edit($request,$danhmuc);
         return redirect()->route('list');
+    }
+    public function setLimit(Request $request)
+    {   $limit = intval($request->setLimit);
+        if ($limit == 0) {
+          Session()->flash('error',gettype($limit));
+        }
+        else {
+            Session()->put("pageLimit",$limit);
+            Session()->flash("success","Cài đặt phân trang thành công: ".$limit);
+        }
+        return redirect()->back();
     }
 }

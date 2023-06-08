@@ -6236,7 +6236,25 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
     max-width: 1140px;
   }
 }
+.modal-primary .modal-header,.modal-primary .modal-footer {
+  border-color: #307095
+}
 
+.modal-warning .modal-header,.modal-warning .modal-footer {
+  border-color: #c87f0a;
+}
+
+.modal-info .modal-header,.modal-info .modal-footer {
+  border-color: #0097bc
+}
+
+.modal-success .modal-header,.modal-success .modal-footer {
+  border-color: #00733e
+}
+
+.modal-danger .modal-header,.modal-danger .modal-footer {
+  border-color: #c23321
+}
 .tooltip {
   position: absolute;
   z-index: 1070;

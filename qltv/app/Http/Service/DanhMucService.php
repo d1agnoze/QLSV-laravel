@@ -25,6 +25,12 @@ class DanhMucService
         return true;
     }
      public function getAll(){
+        if (session()->has('pageLimit')) {
+           $setLimit = session()->get('pageLimit');
+           $setLimit = intval($setLimit);
+           return Danhmuc::paginate($setLimit);
+        //    return Danhmuc::orderBy('id','desc')->paginate($setLimit);
+        }
         return Danhmuc::paginate(2);
      }
       public function edit($request,$danhmuc)

@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     @include('share.head')
+    
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -145,8 +146,8 @@
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    @include('share.sidebar')
 
+    @include('share.sidebar')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -163,7 +164,6 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            @include('share.error')
                             @yield('content')
                         </div>
                         <!-- /.card -->
