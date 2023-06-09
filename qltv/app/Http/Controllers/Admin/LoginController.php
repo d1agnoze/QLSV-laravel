@@ -30,6 +30,7 @@ class LoginController extends Controller
         ]))
         {
             //echo "đăng nhập thành công";
+            session()->flash('success','Logged in');
             return redirect()->route('admin');
         }
         Session()->flash('error','Tên đăng nhập hoặc mật khẩu không chính xác');

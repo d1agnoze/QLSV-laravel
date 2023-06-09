@@ -24,7 +24,7 @@ class CreateDanhMucRequest extends FormRequest
         return [
             //
             'TenDM' => 'required',
-            'MaDM' => 'required',
+            'MaDM' => 'required|max:20',
         ];
     }
 
